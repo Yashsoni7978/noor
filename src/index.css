@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   NOOR - CONTEMPORARY INDIAN CUISINE
+   Design Tokens & CSS Architecture
+   ========================================================================== */
+
+:root {
+  /* Color Palette */
+  --bg-dark: #17110E;
+  --bg-dark-secondary: #1F1713;
+  --bg-dark-card: #211611;
+  --bg-ivory: #F5EBDD;
+  --bg-ivory-sand: #EDE0CE;
+  
+  --text-ivory: #F5EBDD;
+  --text-ivory-muted: #C8BBB0;
+  --text-dark: #17110E;
+  --text-dark-muted: #655B54;
+  
+  --burnt-orange: #8E3F27;
+  --copper: #B7653D;
+  --muted-gold: #C98A4A;
+  --warm-amber: #D9A45B;
+  --white: #FFFFFF;
+
+  --border-dark: rgba(217, 164, 91, 0.18);
+  --border-dark-subtle: rgba(245, 235, 221, 0.1);
+  --border-ivory: rgba(23, 17, 14, 0.15);
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Transitions */
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s ease-out;
+}
+
+/* Reset & Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-dark);
+  color: var(--text-ivory);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  line-height: 1.6;
+  background-color: #17110E;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--copper);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--warm-amber);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--copper);
+  color: var(--bg-ivory);
+}
+
+/* Typography Classes */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Section Colors */
+.section-dark {
+  background-color: var(--bg-dark);
+  color: var(--text-ivory);
+}
+
+.section-ivory {
+  background-color: var(--bg-ivory);
+  color: var(--text-dark);
+}
+
+.section-ivory-sand {
+  background-color: var(--bg-ivory-sand);
+  color: var(--text-dark);
+}
+
+/* Ornamental Details */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.ornament-line {
+  height: 1px;
+  width: 40px;
+  background-color: var(--copper);
+  opacity: 0.6;
+}
+
+.ornament-diamond {
+  width: 6px;
+  height: 6px;
+  background-color: var(--copper);
+  transform: rotate(45deg);
+}
+
+.label-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.section-ivory .label-subtitle {
+  color: var(--burnt-orange);
+}
+
+/* Headline Styles */
+.headline-large {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.5vw, 4.2rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.headline-large span.highlight {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--copper);
+}
+
+.section-ivory .headline-large span.highlight {
+  color: var(--burnt-orange);
+}
+
+/* Editorial Links */
+.link-editorial {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-ivory);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--copper);
+  transition: var(--transition-smooth);
+}
+
+.link-editorial:hover {
+  color: var(--warm-amber);
+  border-bottom-color: var(--warm-amber);
+  transform: translateX(4px);
+}
+
+.section-ivory .link-editorial {
+  color: var(--text-dark);
+  border-bottom-color: var(--burnt-orange);
+}
+
+.section-ivory .link-editorial:hover {
+  color: var(--burnt-orange);
+  border-bottom-color: var(--burnt-orange);
+}
+
+/* Side Annotations */
+.side-annotation {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245, 235, 221, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.side-annotation-ivory {
+  color: rgba(23, 17, 14, 0.5);
+}
+
+.vertical-rule {
+  width: 1px;
+  height: 40px;
+  background-color: var(--border-dark);
+}
+
+/* Botanical motif SVG opacity */
+.botanical-art {
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* Responsive Container */
+.container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
